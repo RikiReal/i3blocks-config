@@ -1,0 +1,10 @@
+#!/bin/bash
+
+WEATHER_LONG=$(curl -s https://wttr.in/?format="%l:+%c%t+%w+%o")
+WEATHER_SHORT=$(curl -s https://wttr.in/?format="%c")
+
+echo $WEATHER_LONG
+echo $WEATHER_SHORT
+
+echo "#FFFFFF"
+#echo "#FF0000"

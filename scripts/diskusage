@@ -1,0 +1,17 @@
+#!/bin/bash
+
+DISK_ROOT=$(df / -h --output=avail | tail -n1 | sed -e "s/[[:blank:]]//g")
+DISK_HOME=$(df /home/ -h --output=avail | tail -n1 | sed -e "s/[[:blank:]]//g")
+
+echo $DISK_ROOT : $DISK_HOME
+echo $DISK_ROOT
+
+USAGE=$(df / --output=pcent | grep total | sed -e "s/%//g" | awk '{ print $5 }')
+
+if [[ $USAGE -le 20 ]]; then
+	echo "#00FF00"
+elif [[ $USAGE -le 50 ]]; then
+	echo "#cc7722"
+elif [[ $USAGE -le 80 ]]; then
+	echo "#FF0000"
+fi

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+i3-msg -q "exec systemsettings5" > /dev/null

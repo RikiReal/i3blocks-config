@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo $(date "+%m/%d %T")
+echo $(date "+%T")
+
+case "$button" in
+	1|2|3)
+		posX=$(($x - 200))
+		posY=$(($y - 200))
+		i3-msg -q "exec yad --calendar --no-buttons --close-on-unfocus --escape-ok --fixed --undecorated --title 'Calendar'\
+			--width=200 --height=200 --posx=$posX --posy=$posY" > /dev/null
+esac

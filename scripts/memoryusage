@@ -1,0 +1,16 @@
+#!/bin/bash
+
+MEM=$(free -h | grep Mem: | awk 'BEGIN { OFS="/" } { print $3,$7 }')
+
+echo $MEM
+echo $MEM
+
+USAGE=$(free -h | grep Mem: | awk '{ print int($3 / $2 * 100) }' | sed -e 's/[[:alpha:]]//g')
+
+if [[ $USAGE -le 50 ]]; then
+    echo "#00FF00"
+elif [[ $USAGE -le 60 ]]; then
+    echo "#cc7722"
+elif [[ $USAGE -le 80 ]]; then
+    echo "#FFAE00"
+fi
